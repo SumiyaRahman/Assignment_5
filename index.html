@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- CSS link -->
+     <link rel="stylesheet" href="./CSS/style.css">
+
     <!-- tailwind & daisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +27,7 @@
                 secondary: '#F9F7F3',
                 textPrimary : '#111111',
                 textSecondary : 'rgba(17, 17, 17, 0.7)',
+                bgSecondary : 'rgba(17, 17, 17, 0.05)',
               },
               fontFamily: {
                 Lexend : "Lexend",
@@ -33,7 +37,69 @@
         };
       </script>
 </head>
-<body class="text-Lexend">
-    
+<body class="font-Lexend">
+    <header class="bg-secondary pt-5 pb-10">
+
+      <!-- navbar -->
+      <nav class="container mx-auto flex justify-between items-center px-5">
+        <button class="bg-primary py-2 px-4 md:py-3 md:px-8 rounded-lg font-semibold text-base md:text-xl text-textPrimary">Blog</button>
+        <div class="flex items-center space-x-4">
+          <img class="w-6 md:w-8" src="./assets/logo.png">
+          <span class="hidden lg:block font-semibold text-xl">Donate Bangladesh</span>
+        </div>
+        <div class="flex items-center space-x-2 md:space-x-3">
+          <img class="w-6 md:w-7" src="./assets/coin.png">
+          <p class="font-semibold text-base md:text-xl text-textSecondary">
+            <span>5500</span>
+            <span class="hidden lg:inline-block">BDT</span>
+          </p>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mt-20 px-5">
+
+      <!-- donation & history section -->
+      <section class="flex justify-center items-center space-x-4">
+        <div>
+          <button class="font-semibold text-lg md:text-xl text-textPrimary bg-primary py-3 px-6 md:py-4 md:px-8 rounded-lg">Donation</button>
+        </div>
+        <div>
+          <button class="font-medium text-lg md:text-xl text-textSecondary border border-textSecondary py-3 px-6 md:py-4 md:px-8 rounded-lg">History</button>
+        </div>
+      </section>
+
+      <!-- donation card -->
+       <section class="container mx-auto mt-8 space-y-8">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center">
+          <div>
+            <img class="w-full" src="./assets/noakhali.png">
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-28 py-3 px-4 rounded-lg">
+                <img width="24px" src="./assets/coin.png">
+                <p class="text-base text-textSecondary font-light">
+                  <span>0</span>
+                  <span>BDT</span>
+                </p>
+              </div>
+  
+              <h3 class="font-bold text-xl my-4">Donate for Flood at Noakhali, Bangladesh</h3>
+              <p class="text-base font-light text-textSecondary leading-7">The devastating floods in Noakhali have left many homes and critical infrastructure damaged. Your donations can help provide much-needed supplies and support to those affected. Every contribution, no matter the size, can make a meaningful difference. Let’s come together to support the relief efforts and make a positive impact on the lives of those in need.</p>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
+              </div>
+              <div class="bg-primary text-center py-3 md:py-4 rounded-lg">
+                <button class="font-semibold text-lg md:text-xl">Donate Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+    </main>
 </body>
 </html>

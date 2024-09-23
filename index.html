@@ -41,7 +41,7 @@
     <header class="bg-secondary pt-5 pb-10">
       <!-- navbar -->
       <nav class="container mx-auto flex justify-between items-center px-5">
-        <a id="to-FAQ-page" class="bg-primary py-2 px-4 md:py-3 md:px-8 rounded-lg font-semibold text-base md:text-xl text-textPrimary">Blog</a>
+        <a onclick="toFAQpage()" class="bg-primary py-2 px-4 md:py-3 md:px-8 rounded-lg font-semibold text-base md:text-xl text-textPrimary cursor-pointer">Blog</a>
         <div class="flex items-center space-x-4">
           <img class="w-6 md:w-8" src="./assets/logo.png">
           <span class="hidden lg:block font-semibold text-xl">Donate Bangladesh</span>
@@ -49,7 +49,7 @@
         <div class="flex items-center space-x-2 md:space-x-3">
           <img class="w-6 md:w-7" src="./assets/coin.png">
           <p class="font-semibold text-base md:text-xl text-textSecondary">
-            <span>10000</span>
+            <span id="total-balance">10000</span>
             <span class="hidden lg:inline-block">BDT</span>
           </p>
         </div>
@@ -60,15 +60,15 @@
       <!-- donation & history section -->
       <section class="flex justify-center items-center space-x-4">
         <div>
-          <a class="font-semibold text-lg md:text-xl text-textPrimary bg-primary py-3 px-6 md:py-4 md:px-8 rounded-lg">Donation</a>
+          <button onclick="toIndexHtml()" class="font-semibold text-lg md:text-xl text-textPrimary bg-primary py-3 px-6 md:py-4 md:px-8 rounded-lg">Donation</button>
         </div>
         <div>
-          <a class="font-medium text-lg md:text-xl text-textSecondary border border-textSecondary py-3 px-6 md:py-4 md:px-8 rounded-lg hover:text-textPrimary hover:border-none hover:bg-primary" href="./history.html">History</a>
+          <button id="show-history" class="font-medium text-lg md:text-xl text-textSecondary border border-textSecondary py-3 px-6 md:py-4 md:px-8 rounded-lg hover:text-textPrimary hover:border-none hover:bg-primary" href="./history.html">History</button>
         </div>
       </section>
 
       <!-- donation card -->
-       <section class="container mx-auto mt-8 space-y-8">
+       <section id="remove-donation-section" class="container mx-auto mt-8 space-y-8">
         <!-- image 1 -->
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl">
           <div>
@@ -76,10 +76,10 @@
           </div>
           <div class="space-y-6">
             <div>
-              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-28 py-3 px-4 rounded-lg">
+              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg">
                 <img width="24px" src="./assets/coin.png">
                 <p class="text-base text-textSecondary font-light">
-                  <span>0</span>
+                  <span id="noa-total">0</span>
                   <span>BDT</span>
                 </p>
               </div>
@@ -90,10 +90,10 @@
 
             <div class="space-y-4">
               <div>
-                <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
+                <input id="donation-value" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
               </div>
               <div class="bg-primary text-center py-3 md:py-4 rounded-lg">
-                <button class="font-semibold text-lg md:text-xl">Donate Now</button>
+                <button id="donate-btn" class="font-semibold text-lg md:text-xl">Donate Now</button>
               </div>
             </div>
           </div>
@@ -159,8 +159,26 @@
           </div>
         </div>
        </section>
+
+       <!-- donation history -->
+       <section id="block-history" class="hidden container mx-auto space-y-6 mt-8">
+        <div class="space-y-4 border p-8 rounded-lg">
+            <h3 class="font-bold text-xl text-textPrimary">96500 Taka is Donated for famine-2024 at Feni, Bangladesh</h3>
+            <p class="font-light text-base">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+        <div class="space-y-4 border p-8 rounded-lg">
+            <h3 class="font-bold text-xl text-textPrimary">96500 Taka is Donated for famine-2024 at Feni, Bangladesh</h3>
+            <p class="font-light text-base">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+        <div class="space-y-4 border p-8 rounded-lg">
+            <h3 class="font-bold text-xl text-textPrimary">96500 Taka is Donated for famine-2024 at Feni, Bangladesh</h3>
+            <p class="font-light text-base">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+       </section>
     </main>
 
     <footer class="bg-secondary py-14 mt-20"></footer>
+
+    <script src="./JS/donate.js"></script>
 </body>
 </html>

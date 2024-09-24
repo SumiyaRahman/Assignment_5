@@ -132,6 +132,7 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
 
     document.getElementById("total-balance").innerText = newTotalBalance;
 
+    // showing donation history
     let quotaTitle = document.getElementById("quota-title").innerText;
 
     showHistory(history, quotaDonationValue, quotaTitle);

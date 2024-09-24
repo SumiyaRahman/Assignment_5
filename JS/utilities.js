@@ -9,7 +9,7 @@ function getInnerText(id) {
 }
 
 function showHistory(history, amount, title_text){
-    let currentDate = new Date().toString();
+    let currentDate = new Date().toString(); 
     history.innerHTML += `
         <div class="space-y-4 border p-8 rounded-lg">
             <h3 class="font-bold text-xl text-textPrimary">${amount} Taka is Donated for ${title_text}</h3>

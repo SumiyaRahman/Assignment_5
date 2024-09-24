@@ -45,7 +45,7 @@
     </script>
   </head>
   <body class="font-Lexend">
-    <header class="bg-secondary pt-5 pb-10">
+    <header class="bg-secondary pt-5 pb-10 sticky z-10 top-0 backdrop-blur-md bg-opacity-80">
       <!-- navbar -->
       <nav class="container mx-auto flex justify-between items-center px-5">
         <a onclick="toHomePage()"
@@ -68,61 +68,61 @@
       </nav>
     </header>
 
-    <main class="container mx-auto mt-20 px-5">
+    <main class="container mx-auto mt-5 md:mt-8 lg:mt-12 pb-3 md:pb-5 lg:pb-8 px-5">
       <section>
-        <h2 class="flex">
-          <span class="flex items-end font-bold text-textPrimary text-3xl me-5"
+        <h2 class="flex gap-2">
+          <span class="flex items-end font-bold text-textPrimary text-xl lg:text-2xl xl:text-3xl"
             >Important FAQ</span
           >
-          <img class="w-12" src="./assets/question.png" />
+          <img class="w-8 md:w-10 lg:md-12 h-8 md:h-10 lg:h-12" src="./assets/question.png" />
         </h2>
         <div class="mt-10 space-y-5">
             <div class="collapse collapse-plus border">
                 <input type="radio" name="my-accordion-3"/>
-                <div class="collapse-title font-medium text-lg
+                <div class="collapse-title font-medium text-md md:text-xl xl:text-2xl
                 text-textPrimary">
                     What is the Document Object Model (DOM)?
                 </div>
                 <div class="collapse-content">
-                  <p class="text-base font-light text-textSecondary leading-7">The Document Object Model (DOM) is a structured representation of a webpage, organized as a tree of objects. It allows programming languages like JavaScript to access, modify, and interact with the content, structure, and style of a webpage dynamically.</p>
+                  <p class="text-sm md:text-md font-light text-textSecondary leading-7">The Document Object Model (DOM) is a structured representation of a webpage, organized as a tree of objects. It allows programming languages like JavaScript to access, modify, and interact with the content, structure, and style of a webpage dynamically.</p>
                 </div>
               </div>
               <div class="collapse collapse-plus border">
                 <input type="radio" name="my-accordion-3" />
-                <div class="collapse-title font-medium text-lg
+                <div class="collapse-title font-medium text-md md:text-xl xl:text-2xl
                 text-textPrimary">
                     How do you select an element from the DOM?
                 </div>
                 <div class="collapse-content">
                   <p>
-                    <span class="text-base font-light text-textSecondary leading-7">You can select a DOM element in JavaScript using methods like:</span>
-                    <ul class="text-base font-light text-textSecondary leading-7">
+                    <span class="text-sm md:text-md font-light text-textSecondary leading-7">You can select a DOM element in JavaScript using methods like:</span>
+                    <ul class="text-sm md:text-md font-light text-textSecondary leading-7">
                         <li><span class="text-primary font-bold">document.getElementById('id')</span> for selecting by ID.</li>
                         <li><span class="text-primary font-bold">document.querySelector('selector')</span> for selecting the first matching element.</li>
                         <li><span class="text-primary font-bold">document.querySelectorAll('selector')</span> for selecting all matching elements.</li>
                     </ul>
-                    <span class="text-base font-light text-textSecondary leading-7">These methods allow you to target and manipulate elements on a webpage.</span>
+                    <span class="text-sm md:text-md font-light text-textSecondary leading-7">These methods allow you to target and manipulate elements on a webpage.</span>
                   </p>
                 </div>
               </div>
               <div class="collapse collapse-plus border">
                 <input type="radio" name="my-accordion-3" />
-                <div class="collapse-title font-medium text-lg
+                <div class="collapse-title font-medium text-md md:text-xl xl:text-2xl
                 text-textPrimary">
                     What is event delegation in the context of the DOM, and why is it useful?
                 </div>
                 <div class="collapse-content">
-                  <p class="text-base font-light text-textSecondary leading-7">Event delegation is a technique in the DOM where a single event listener is added to a parent element to manage events for its child elements. It takes advantage of event bubbling, where events propagate up the DOM tree. This is useful because it reduces the number of event listeners needed, improving performance and making it easier to handle dynamic elements added later.</p>
+                  <p class="text-sm md:text-md font-light text-textSecondary leading-7">Event delegation is a technique in the DOM where a single event listener is added to a parent element to manage events for its child elements. It takes advantage of event bubbling, where events propagate up the DOM tree. This is useful because it reduces the number of event listeners needed, improving performance and making it easier to handle dynamic elements added later.</p>
                 </div>
               </div>
               <div class="collapse collapse-plus border">
                 <input type="radio" name="my-accordion-3" />
-                <div class="collapse-title font-medium text-lg
+                <div class="collapse-title font-medium text-md md:text-xl xl:text-2xl
                 text-textPrimary">
                     How do you manipulate an element's attributes and styles using the DOM?
                 </div>
                 <div class="collapse-content">
-                  <p class="text-base font-light text-textSecondary leading-7">You can manipulate an element's attributes using <span class="text-primary font-bold">"setAttribute()"</span> or directly modify properties <span class="text-primary font-bold">(element.id)</span>. To change styles, use the <span class="text-primary font-bold">style</span> property <span class="text-primary font-bold">(element.style.color)</span>.</p>
+                  <p class="text-sm md:text-md font-light text-textSecondary leading-7">You can manipulate an element's attributes using <span class="text-primary font-bold">"setAttribute()"</span> or directly modify properties <span class="text-primary font-bold">(element.id)</span>. To change styles, use the <span class="text-primary font-bold">style</span> property <span class="text-primary font-bold">(element.style.color)</span>.</p>
                 </div>
               </div>
         </div>

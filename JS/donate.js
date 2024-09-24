@@ -55,9 +55,9 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     let donationValue = getInputValue("donation-value");
     let totalBalance = parseInt(getInnerText("total-balance"));
 
-     // Validate donation
+    // input validation
      if (!validateDonation(donationValue, totalBalance)) {
-        return; // Stop further execution if validation fails
+        return;
     }
 
     // get current amount
@@ -87,30 +87,23 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 document.getElementById('feni-donate-btn').addEventListener('click', function(event){
     event.preventDefault();
 
-    // get input value
     let feniDonationValue = getInputValue("feni-donation-value");
     let totalBalance = parseInt(getInnerText("total-balance"));
 
-    // Validate donation
     if(!validateDonation(feniDonationValue, totalBalance)){
-        return; // Stop further execution if validation fails
+        return; 
     }
     
-    // get current amount
     let feniTotal = getInnerText("feni-total");
     
-    // get input value + get current value
     let newFeniTotal = parseInt(feniDonationValue) + parseInt(feniTotal);
 
-    // update the balance
     document.getElementById("feni-total").innerText = newFeniTotal;
 
     let newTotalBalance = parseInt(totalBalance) - parseInt(feniDonationValue);
 
-    // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
 
-    // showing donation history
     let feniTitle = document.getElementById("feni-title").innerText;
 
     showHistory(history, feniDonationValue, feniTitle);
@@ -122,30 +115,23 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
 document.getElementById('quota-donate-btn').addEventListener('click', function(event){
     event.preventDefault();
 
-    // get input value
     let quotaDonationValue = getInputValue("quota-donation-value");
     let totalBalance = parseInt(getInnerText("total-balance"));
 
-    // Validate donation
     if(!validateDonation(quotaDonationValue, totalBalance)){
         return;
     };
-    
-    // get current amount
+
     let quotaTotal = getInnerText("quota-total");
     
-    // get input value + get current value
     let newQuotaTotal = parseInt(quotaDonationValue) + parseInt(quotaTotal);
 
-    // update the balance
     document.getElementById("quota-total").innerText = newQuotaTotal;
     
     let newTotalBalance = parseInt(totalBalance) - parseInt(quotaDonationValue);
 
-    // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
 
-    // showing donation history
     let quotaTitle = document.getElementById("quota-title").innerText;
 
     showHistory(history, quotaDonationValue, quotaTitle);

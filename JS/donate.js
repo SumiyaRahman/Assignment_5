@@ -53,7 +53,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // get input value
     let donationValue = getInputValue("donation-value");
-    let totalBalance = parseFloat(getInnerText("total-balance"));
+    let totalBalance = parseInt(getInnerText("total-balance"));
 
      // Validate donation
      if (!validateDonation(donationValue, totalBalance)) {
@@ -64,12 +64,12 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     let noaTotal = getInnerText("noa-total");
     
     // get input value + get current value
-    let newNoaTotal = parseFloat(donationValue) + parseFloat(noaTotal);
+    let newNoaTotal = parseInt(donationValue) + parseInt(noaTotal);
 
     // update the balance
     document.getElementById("noa-total").innerText = newNoaTotal;
     
-    let newTotalBalance = totalBalance - parseFloat(donationValue);
+    let newTotalBalance = totalBalance - parseInt(donationValue);
 
     // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
@@ -80,7 +80,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     showHistory(history, donationValue, noaTitle);
 
     // show modal
-    
+    modal.showModal();
 })
 
 // add feni money
@@ -89,7 +89,7 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
 
     // get input value
     let feniDonationValue = getInputValue("feni-donation-value");
-    let totalBalance = parseFloat(getInnerText("total-balance"));
+    let totalBalance = parseInt(getInnerText("total-balance"));
 
     // Validate donation
     if(!validateDonation(feniDonationValue, totalBalance)){
@@ -100,12 +100,12 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
     let feniTotal = getInnerText("feni-total");
     
     // get input value + get current value
-    let newFeniTotal = parseFloat(feniDonationValue) + parseFloat(feniTotal);
+    let newFeniTotal = parseInt(feniDonationValue) + parseInt(feniTotal);
 
     // update the balance
     document.getElementById("feni-total").innerText = newFeniTotal;
 
-    let newTotalBalance = parseFloat(totalBalance) - parseFloat(feniDonationValue);
+    let newTotalBalance = parseInt(totalBalance) - parseInt(feniDonationValue);
 
     // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
@@ -114,6 +114,8 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
     let feniTitle = document.getElementById("feni-title").innerText;
 
     showHistory(history, feniDonationValue, feniTitle);
+
+    modal.showModal();
 });
 
 // add quota money
@@ -122,7 +124,7 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
 
     // get input value
     let quotaDonationValue = getInputValue("quota-donation-value");
-    let totalBalance = parseFloat(getInnerText("total-balance"));
+    let totalBalance = parseInt(getInnerText("total-balance"));
 
     // Validate donation
     if(!validateDonation(quotaDonationValue, totalBalance)){
@@ -133,12 +135,12 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
     let quotaTotal = getInnerText("quota-total");
     
     // get input value + get current value
-    let newQuotaTotal = parseFloat(quotaDonationValue) + parseFloat(quotaTotal);
+    let newQuotaTotal = parseInt(quotaDonationValue) + parseInt(quotaTotal);
 
     // update the balance
     document.getElementById("quota-total").innerText = newQuotaTotal;
     
-    let newTotalBalance = parseFloat(totalBalance) - parseFloat(quotaDonationValue);
+    let newTotalBalance = parseInt(totalBalance) - parseInt(quotaDonationValue);
 
     // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
@@ -147,4 +149,6 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
     let quotaTitle = document.getElementById("quota-title").innerText;
 
     showHistory(history, quotaDonationValue, quotaTitle);
+
+    modal.showModal();
 });

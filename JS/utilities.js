@@ -17,20 +17,32 @@ function showHistory(history, amount, title_text){
         </div>`;
 }
 
-// Utility function to validate donation input
 function validateDonation(amount, currentBalance) {
+    // Remove any extra spaces around the input
+    amount = amount.trim();
+
+    // Check if the input is empty
     if (!amount) {
         alert("Please enter a donation amount.");
         return false;
     }
-    
-    let numericValue = parseFloat(amount);
-    
-    if (isNaN(numericValue) || numericValue <= 0) {
-        alert("Please enter a valid positive number.");
+
+    // Use a regular expression to ensure the input is a valid integer
+    if (!/^\d+$/.test(amount)) {
+        alert("Please enter a valid positive integer.");
         return false;
     }
-    
+
+    // Convert the input to an integer
+    let numericValue = parseInt(amount,10);
+
+    // Ensure the donation is greater than 0
+    if (numericValue <= 0) {
+        alert("Please enter a positive amount.");
+        return false;
+    }
+
+    // Ensure the donation is not greater than the current balance
     if (numericValue > currentBalance) {
         alert("Insufficient balance. Please enter a smaller amount.");
         return false;

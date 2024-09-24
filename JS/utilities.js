@@ -16,3 +16,25 @@ function showHistory(history, amount, title_text){
             <p class="font-light text-base">Date: ${currentDate}</p> <!-- Display the date here -->
         </div>`;
 }
+
+// Utility function to validate donation input
+function validateDonation(amount, currentBalance) {
+    if (!amount) {
+        alert("Please enter a donation amount.");
+        return false;
+    }
+    
+    let numericValue = parseFloat(amount);
+    
+    if (isNaN(numericValue) || numericValue <= 0) {
+        alert("Please enter a valid positive number.");
+        return false;
+    }
+    
+    if (numericValue > currentBalance) {
+        alert("Insufficient balance. Please enter a smaller amount.");
+        return false;
+    }
+
+    return true;
+}

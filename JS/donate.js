@@ -53,6 +53,12 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // get input value
     let donationValue = getInputValue("donation-value");
+    let totalBalance = parseFloat(getInnerText("total-balance"));
+
+     // Validate donation
+     if (!validateDonation(donationValue, totalBalance)) {
+        return; // Stop further execution if validation fails
+    }
 
     // get current amount
     let noaTotal = getInnerText("noa-total");
@@ -62,11 +68,8 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // update the balance
     document.getElementById("noa-total").innerText = newNoaTotal;
-
-    // total balance decrease
-    let totalBalance = getInnerText("total-balance");
     
-    let newTotalBalance = parseFloat(totalBalance) - parseFloat(donationValue);
+    let newTotalBalance = totalBalance - parseFloat(donationValue);
 
     // update total balance
     document.getElementById("total-balance").innerText = newTotalBalance;
@@ -77,7 +80,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     showHistory(history, donationValue, noaTitle);
 
     // show modal
-    modal.showModal()
+    
 })
 
 // add feni money
@@ -86,6 +89,12 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
 
     // get input value
     let feniDonationValue = getInputValue("feni-donation-value");
+    let totalBalance = parseFloat(getInnerText("total-balance"));
+
+    // Validate donation
+    if(!validateDonation(feniDonationValue, totalBalance)){
+        return; // Stop further execution if validation fails
+    }
     
     // get current amount
     let feniTotal = getInnerText("feni-total");
@@ -96,9 +105,6 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
     // update the balance
     document.getElementById("feni-total").innerText = newFeniTotal;
 
-    // total balance decrease
-    let totalBalance = getInnerText("total-balance");
-    
     let newTotalBalance = parseFloat(totalBalance) - parseFloat(feniDonationValue);
 
     // update total balance
@@ -116,6 +122,12 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
 
     // get input value
     let quotaDonationValue = getInputValue("quota-donation-value");
+    let totalBalance = parseFloat(getInnerText("total-balance"));
+
+    // Validate donation
+    if(!validateDonation(quotaDonationValue, totalBalance)){
+        return;
+    };
     
     // get current amount
     let quotaTotal = getInnerText("quota-total");
@@ -125,9 +137,6 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
 
     // update the balance
     document.getElementById("quota-total").innerText = newQuotaTotal;
-
-    // total balance decrease
-    let totalBalance = getInnerText("total-balance");
     
     let newTotalBalance = parseFloat(totalBalance) - parseFloat(quotaDonationValue);
 

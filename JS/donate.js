@@ -1,5 +1,8 @@
 let history = document.getElementById("block-history");
 let modal = document.getElementById("show-modal");
+const noaDonationValue = document.getElementById('donation-value');
+const fenDonationValue = document.getElementById('feni-donation-value');
+const quoDonationValue = document.getElementById('quota-donation-value');
 // redirect to FAQ page
 function toBlogPage() {
     window.location.href = "blog.html";
@@ -57,6 +60,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // input validation
      if (!validateDonation(donationValue, totalBalance)) {
+        noaDonationValue.value = '';
         return;
     }
 
@@ -78,6 +82,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     let noaTitle = document.getElementById("noa-title").innerText;
 
     showHistory(history, donationValue, noaTitle);
+    noaDonationValue.value = '';
 
     // show modal
     modal.showModal();
@@ -91,6 +96,7 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
     let totalBalance = parseInt(getInnerText("total-balance"));
 
     if(!validateDonation(feniDonationValue, totalBalance)){
+        fenDonationValue.value = '';
         return; 
     }
     
@@ -107,6 +113,7 @@ document.getElementById('feni-donate-btn').addEventListener('click', function(ev
     let feniTitle = document.getElementById("feni-title").innerText;
 
     showHistory(history, feniDonationValue, feniTitle);
+    fenDonationValue.value = '';
 
     modal.showModal();
 });
@@ -119,6 +126,7 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
     let totalBalance = parseInt(getInnerText("total-balance"));
 
     if(!validateDonation(quotaDonationValue, totalBalance)){
+        quoDonationValue.value = '';
         return;
     };
 
@@ -136,6 +144,7 @@ document.getElementById('quota-donate-btn').addEventListener('click', function(e
     let quotaTitle = document.getElementById("quota-title").innerText;
 
     showHistory(history, quotaDonationValue, quotaTitle);
+    quoDonationValue.value = '';
 
     modal.showModal();
 });

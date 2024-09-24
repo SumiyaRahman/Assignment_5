@@ -1,173 +1,304 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 5</title>
 
     <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS link -->
-     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css" />
 
     <!-- tailwind & daisyUI CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- customizing your config -->
     <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                primary: '#B4F461',
-                secondary: '#F9F7F3',
-                textPrimary : '#111111',
-                textSecondary : 'rgba(17, 17, 17, 0.7)',
-                bgSecondary : 'rgba(17, 17, 17, 0.05)',
-              },
-              fontFamily: {
-                Lexend : "Lexend",
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#B4F461",
+              secondary: "#F9F7F3",
+              textPrimary: "#111111",
+              textSecondary: "rgba(17, 17, 17, 0.7)",
+              bgSecondary: "rgba(17, 17, 17, 0.05)",
             },
+            fontFamily: {
+              Lexend: "Lexend",
             },
           },
-        };
-      </script>
-</head>
-<body class="font-Lexend">
+        },
+      };
+    </script>
+  </head>
+  <body class="font-Lexend">
     <header class="sticky z-10 top-0 backdrop-blur-md">
       <!-- navbar -->
       <nav class="px-5 bg-secondary bg-opacity-80 pt-5 pb-10">
         <div class="container mx-auto flex justify-between items-center">
-          <a onclick="toBlogPage()" class="bg-primary py-2 px-4 md:py-3 md:px-8 rounded-lg font-semibold text-base md:text-xl text-textPrimary cursor-pointer">Blog</a>
-        <div class="flex items-center space-x-4">
-          <img class="w-6 md:w-8" src="./assets/logo.png">
-          <span class="hidden lg:block font-semibold text-xl">Donate Bangladesh</span>
-        </div>
-        <div class="flex items-center space-x-2 md:space-x-3">
-          <img class="w-6 md:w-7" src="./assets/coin.png">
-          <p class="font-semibold text-base md:text-xl text-textSecondary">
-            <span id="total-balance">10000</span>
-            <span class="hidden lg:inline-block">BDT</span>
-          </p>
-        </div>
+          <a
+            onclick="toBlogPage()"
+            class="bg-primary py-2 px-4 md:py-3 md:px-8 rounded-lg font-semibold text-base md:text-xl text-textPrimary cursor-pointer"
+            >Blog</a
+          >
+          <div class="flex items-center space-x-4">
+            <img class="w-6 md:w-8" src="./assets/logo.png" />
+            <span class="hidden lg:block font-semibold text-xl"
+              >Donate Bangladesh</span
+            >
+          </div>
+          <div class="flex items-center space-x-2 md:space-x-3">
+            <img class="w-6 md:w-7" src="./assets/coin.png" />
+            <p class="font-semibold text-base md:text-xl text-textSecondary">
+              <span id="total-balance">10000</span>
+              <span class="hidden lg:inline-block">BDT</span>
+            </p>
+          </div>
         </div>
       </nav>
       <!-- donation & history section -->
       <section class="flex justify-center items-center space-x-4 mt-20 pb-8">
         <div>
-          <button id="show-donation" class="font-semibold text-lg md:text-xl text-textPrimary bg-primary py-3 px-6 md:py-4 md:px-8 rounded-lg">Donation</button>
+          <button
+            id="show-donation"
+            class="font-semibold text-lg md:text-xl text-textPrimary bg-primary py-3 px-6 md:py-4 md:px-8 rounded-lg"
+          >
+            Donation
+          </button>
         </div>
         <div>
-          <button id="show-history" class="font-medium text-lg md:text-xl text-textSecondary border border-textSecondary py-3 px-6 md:py-4 md:px-8 rounded-lg hover:text-textPrimary hover:border-none hover:bg-primary" href="./history.html">History</button>
+          <button
+            id="show-history"
+            class="font-medium text-lg md:text-xl text-textSecondary border border-textSecondary py-3 px-6 md:py-4 md:px-8 rounded-lg hover:text-textPrimary hover:border-none hover:bg-primary"
+            href="./history.html"
+          >
+            History
+          </button>
         </div>
       </section>
     </header>
 
     <main class="px-5">
       <!-- donation card -->
-       <section id="remove-donation-section" class="container mx-auto space-y-8">
+      <section id="remove-donation-section" class="container mx-auto space-y-8">
         <!-- image 1 -->
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl">
+        <div
+          class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl"
+        >
           <div>
-            <img class="w-full" src="./assets/noakhali.png">
+            <img class="w-full" src="./assets/noakhali.png" />
           </div>
           <div class="space-y-6">
             <div>
-              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg">
-                <img width="24px" src="./assets/coin.png">
+              <div
+                class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg"
+              >
+                <img width="24px" src="./assets/coin.png" />
                 <p class="text-base text-textSecondary font-light">
                   <span id="noa-total">0</span>
                   <span>BDT</span>
                 </p>
               </div>
-  
-              <h3 id="noa-title" class="font-bold text-xl my-4 text-textPrimary">Donate for Flood at Noakhali, Bangladesh</h3>
-              <p class="text-base font-light text-textSecondary leading-7">The devastating floods in Noakhali have left many homes and critical infrastructure damaged. Your donations can help provide much-needed supplies and support to those affected. Every contribution, no matter the size, can make a meaningful difference. Let’s come together to support the relief efforts and make a positive impact on the lives of those in need.</p>
+
+              <h3
+                id="noa-title"
+                class="font-bold text-xl my-4 text-textPrimary"
+              >
+                Donate for Flood at Noakhali, Bangladesh
+              </h3>
+              <p class="text-base font-light text-textSecondary leading-7">
+                The devastating floods in Noakhali have left many homes and
+                critical infrastructure damaged. Your donations can help provide
+                much-needed supplies and support to those affected. Every
+                contribution, no matter the size, can make a meaningful
+                difference. Let’s come together to support the relief efforts
+                and make a positive impact on the lives of those in need.
+              </p>
             </div>
 
             <div class="space-y-4">
               <div>
-                <input id="donation-value" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
+                <input
+                  id="donation-value"
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light"
+                />
               </div>
               <div>
-                <button id="donate-btn" class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full">Donate Now</button>
+                <button
+                  id="donate-btn"
+                  class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full"
+                >
+                  Donate Now
+                </button>
               </div>
             </div>
           </div>
         </div>
 
         <!-- image 2 -->
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl">
+        <div
+          class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl"
+        >
           <div>
-            <img class="w-full" src="./assets/feni.png">
+            <img class="w-full" src="./assets/feni.png" />
           </div>
           <div class="space-y-6">
             <div>
-              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg">
-                <img width="24px" src="./assets/coin.png">
+              <div
+                class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg"
+              >
+                <img width="24px" src="./assets/coin.png" />
                 <p class="text-base text-textSecondary font-light">
                   <span id="feni-total">600</span>
                   <span>BDT</span>
                 </p>
               </div>
-  
-              <h3 id="feni-title" class="font-bold text-xl my-4 text-textPrimary">Donate for Flood Relief in Feni,Bangladesh</h3>
-              <p class="text-base font-light text-textSecondary leading-7">The recent floods in Feni have caused widespread destruction, severely impacting local communities. By donating, you can help provide essential relief, such as food, clean water, and medical supplies, to those in urgent need. Your support is vital in helping families recover and rebuild their lives after this disaster. Every donation, no matter the amount, makes a meaningful difference. Please consider contributing today to aid those affected and offer them hope for a better tomorrow.</p>
+
+              <h3
+                id="feni-title"
+                class="font-bold text-xl my-4 text-textPrimary"
+              >
+                Donate for Flood Relief in Feni,Bangladesh
+              </h3>
+              <p class="text-base font-light text-textSecondary leading-7">
+                The recent floods in Feni have caused widespread destruction,
+                severely impacting local communities. By donating, you can help
+                provide essential relief, such as food, clean water, and medical
+                supplies, to those in urgent need. Your support is vital in
+                helping families recover and rebuild their lives after this
+                disaster. Every donation, no matter the amount, makes a
+                meaningful difference. Please consider contributing today to aid
+                those affected and offer them hope for a better tomorrow.
+              </p>
             </div>
 
             <div class="space-y-4">
               <div>
-                <input id="feni-donation-value" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
+                <input
+                  id="feni-donation-value"
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light"
+                />
               </div>
               <div>
-                <button id="feni-donate-btn" class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full">Donate Now</button>
+                <button
+                  id="feni-donate-btn"
+                  class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full"
+                >
+                  Donate Now
+                </button>
               </div>
             </div>
           </div>
         </div>
 
         <!-- image 3 -->
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl">
+        <div
+          class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center border p-8 rounded-xl"
+        >
           <div>
-            <img class="w-full" src="./assets/quota-protest.png">
+            <img class="w-full" src="./assets/quota-protest.png" />
           </div>
           <div class="space-y-6">
             <div>
-              <div class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg">
-                <img width="24px" src="./assets/coin.png">
+              <div
+                class="flex items-center justify-center space-x-2 bg-bgSecondary w-36 py-3 px-4 rounded-lg"
+              >
+                <img width="24px" src="./assets/coin.png" />
                 <p class="text-base text-textSecondary font-light">
                   <span id="quota-total">2400</span>
                   <span>BDT</span>
                 </p>
               </div>
-  
-              <h3 id="quota-title" class="font-bold text-xl my-4 text-textPrimary">Aid for Injured in the Quota Movement</h3>
-              <p class="text-base font-light text-textSecondary leading-7">The recent Quota movement has led to many injuries and hardships for countless individuals. Your support can make a difference by providing medical care, rehabilitation, and essential supplies to those in need. By donating, you contribute to ensuring that the injured receive the treatment and assistance required during this difficult period. Every contribution is important in easing their pain and helping them recover. Please consider donating to assist these courageous individuals as they navigate this challenging time.</p>
+
+              <h3
+                id="quota-title"
+                class="font-bold text-xl my-4 text-textPrimary"
+              >
+                Aid for Injured in the Quota Movement
+              </h3>
+              <p class="text-base font-light text-textSecondary leading-7">
+                The recent Quota movement has led to many injuries and hardships
+                for countless individuals. Your support can make a difference by
+                providing medical care, rehabilitation, and essential supplies
+                to those in need. By donating, you contribute to ensuring that
+                the injured receive the treatment and assistance required during
+                this difficult period. Every contribution is important in easing
+                their pain and helping them recover. Please consider donating to
+                assist these courageous individuals as they navigate this
+                challenging time.
+              </p>
             </div>
 
             <div class="space-y-4">
               <div>
-                <input id="quota-donation-value" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light" />
+                <input
+                  id="quota-donation-value"
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full rounded-lg placeholder:text-[rgba(17, 17, 17, 0.4)] placeholder:text-base placeholder:font-light"
+                />
               </div>
               <div>
-                <button id="quota-donate-btn" class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full">Donate Now</button>
+                <button
+                  id="quota-donate-btn"
+                  class="bg-primary text-center py-3 md:py-4 rounded-lg font-semibold text-lg md:text-xl w-full"
+                >
+                  Donate Now
+                </button>
               </div>
             </div>
           </div>
         </div>
-       </section>
+      </section>
 
-       <!-- donation history -->
-       <section id="block-history" class="hidden container mx-auto space-y-6 mt-8"></section>
+      <section>
+        <dialog id="show-modal" class="modal">
+          <div class="modal-box">
+            <div class="text-center">
+              <h3 class="text-textPrimary text-3xl font-bold mb-5">Congrats</h3>
+              <div class="flex justify-center">
+                <img src="./assets/coin.png" />
+              </div>
+              <p class="py-4 text-sm text-textSecondary mt-6">You have donated for humankind</p>
+              <h6 class="text-lg font-semibold text-textPrimary">Successfully</h6>
+            </div>
+            <div class="modal-action flex justify-center">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn text-xs text-textPrimary">close confirmation</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+
+      <!-- donation history -->
+      <section
+        id="block-history"
+        class="hidden container mx-auto space-y-6 mt-8"
+      ></section>
     </main>
 
     <footer class="bg-secondary py-14 mt-20"></footer>
 
     <script src="./JS/utilities.js"></script>
     <script src="./JS/donate.js"></script>
-</body>
+  </body>
 </html>

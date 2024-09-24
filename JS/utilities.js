@@ -16,4 +16,3 @@ function showHistory(history, amount, title_text){
             <p class="font-light text-base">Date: ${currentDate}</p> <!-- Display the date here -->
         </div>`;
 }
-

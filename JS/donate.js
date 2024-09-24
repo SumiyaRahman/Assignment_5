@@ -1,4 +1,5 @@
 let history = document.getElementById("block-history");
+let modal = document.getElementById("show-modal");
 // redirect to FAQ page
 function toBlogPage() {
     window.location.href = "blog.html";
@@ -52,7 +53,7 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // get input value
     let donationValue = getInputValue("donation-value");
-    
+
     // get current amount
     let noaTotal = getInnerText("noa-total");
     
@@ -73,8 +74,10 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     // showing donation history
     let noaTitle = document.getElementById("noa-title").innerText;
 
-    showHistory(history, donationValue, noaTitle)
-    
+    showHistory(history, donationValue, noaTitle);
+
+    // show modal
+    modal.showModal()
 })
 
 // add feni money

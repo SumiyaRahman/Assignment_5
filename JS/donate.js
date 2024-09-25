@@ -55,12 +55,21 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     event.preventDefault();
 
     // get input value
-    let donationValue = getInputValue("donation-value");
-    let totalBalance = parseInt(getInnerText("total-balance"));
+    const donationValue = getInputValue("donation-value");
+    if(donationValue === -1){
+        alert("Invalid Input");
+        noaDonationValue.value = '';
+        return;
+    }
+
+    const totalBalance = getInnerText("total-balance");
+    const donVal = donationValue;
+    const totVal = totalBalance;
 
     // input validation
-     if (!validateDonation(donationValue, totalBalance)) {
+     if (!validateDonation(donVal, totVal)) {
         noaDonationValue.value = '';
+        alert("Insufficient Coins!!");
         return;
     }
 
@@ -68,15 +77,15 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
     let noaTotal = getInnerText("noa-total");
     
     // get input value + get current value
-    let newNoaTotal = parseInt(donationValue) + parseInt(noaTotal);
+    let newNoaTotal = parseFloat(donVal) + parseFloat(noaTotal);;
 
     // update the balance
-    document.getElementById("noa-total").innerText = newNoaTotal;
+    document.getElementById("noa-total").innerText = newNoaTotal.toFixed(2);
     
-    let newTotalBalance = totalBalance - parseInt(donationValue);
+    let newTotalBalance = parseFloat(totVal) - parseFloat(donVal);
 
     // update total balance
-    document.getElementById("total-balance").innerText = newTotalBalance;
+    document.getElementById("total-balance").innerText = newTotalBalance.toFixed(2);
 
     // showing donation history
     let noaTitle = document.getElementById("noa-title").innerText;
@@ -86,65 +95,94 @@ document.getElementById('donate-btn').addEventListener('click', function(event){
 
     // show modal
     modal.showModal();
-})
-
-// add feni money
-document.getElementById('feni-donate-btn').addEventListener('click', function(event){
-    event.preventDefault();
-
-    let feniDonationValue = getInputValue("feni-donation-value");
-    let totalBalance = parseInt(getInnerText("total-balance"));
-
-    if(!validateDonation(feniDonationValue, totalBalance)){
-        fenDonationValue.value = '';
-        return; 
-    }
-    
-    let feniTotal = getInnerText("feni-total");
-    
-    let newFeniTotal = parseInt(feniDonationValue) + parseInt(feniTotal);
-
-    document.getElementById("feni-total").innerText = newFeniTotal;
-
-    let newTotalBalance = parseInt(totalBalance) - parseInt(feniDonationValue);
-
-    document.getElementById("total-balance").innerText = newTotalBalance;
-
-    let feniTitle = document.getElementById("feni-title").innerText;
-
-    showHistory(history, feniDonationValue, feniTitle);
-    fenDonationValue.value = '';
-
-    modal.showModal();
 });
-
-// add quota money
 document.getElementById('quota-donate-btn').addEventListener('click', function(event){
     event.preventDefault();
 
-    let quotaDonationValue = getInputValue("quota-donation-value");
-    let totalBalance = parseInt(getInnerText("total-balance"));
-
-    if(!validateDonation(quotaDonationValue, totalBalance)){
+    // get input value
+    const donationValue = getInputValue("quota-donation-value");
+    if(donationValue === -1){
+        alert("Invalid Input");
         quoDonationValue.value = '';
         return;
-    };
+    }
 
-    let quotaTotal = getInnerText("quota-total");
+    const totalBalance = getInnerText("total-balance");
+    const donVal = donationValue;
+    const totVal = totalBalance;
+
+    // input validation
+     if (!validateDonation(donVal, totVal)) {
+        quoDonationValue.value = '';
+        alert("Insufficient Coins!!");
+        return;
+    }
+
+    // get current amount
+    let noaTotal = getInnerText("quota-total");
     
-    let newQuotaTotal = parseInt(quotaDonationValue) + parseInt(quotaTotal);
+    // get input value + get current value
+    let newNoaTotal = parseFloat(donVal) + parseFloat(noaTotal);;
 
-    document.getElementById("quota-total").innerText = newQuotaTotal;
+    // update the balance
+    document.getElementById("quota-total").innerText = newNoaTotal.toFixed(2);
     
-    let newTotalBalance = parseInt(totalBalance) - parseInt(quotaDonationValue);
+    let newTotalBalance = parseFloat(totVal) - parseFloat(donVal);
 
-    document.getElementById("total-balance").innerText = newTotalBalance;
+    // update total balance
+    document.getElementById("total-balance").innerText = newTotalBalance.toFixed(2);
 
     // showing donation history
-    let quotaTitle = document.getElementById("quota-title").innerText;
+    let noaTitle = document.getElementById("quota-title").innerText;
 
-    showHistory(history, quotaDonationValue, quotaTitle);
+    showHistory(history, donationValue, noaTitle);
     quoDonationValue.value = '';
 
+    // show modal
+    modal.showModal();
+});
+document.getElementById('feni-donate-btn').addEventListener('click', function(event){
+    event.preventDefault();
+
+    // get input value
+    const donationValue = getInputValue("feni-donation-value");
+    if(donationValue === -1){
+        alert("Invalid Input");
+        fenDonationValue.value = '';
+        return;
+    }
+
+    const totalBalance = getInnerText("total-balance");
+    const donVal = donationValue;
+    const totVal = totalBalance;
+
+    // input validation
+     if (!validateDonation(donVal, totVal)) {
+        fenDonationValue.value = '';
+        alert("Insufficient Coins!!");
+        return;
+    }
+
+    // get current amount
+    let noaTotal = getInnerText("feni-total");
+    
+    // get input value + get current value
+    let newNoaTotal = parseFloat(donVal) + parseFloat(noaTotal);;
+
+    // update the balance
+    document.getElementById("feni-total").innerText = newNoaTotal.toFixed(2);
+    
+    let newTotalBalance = parseFloat(totVal) - parseFloat(donVal);
+
+    // update total balance
+    document.getElementById("total-balance").innerText = newTotalBalance.toFixed(2);
+
+    // showing donation history
+    let noaTitle = document.getElementById("feni-title").innerText;
+
+    showHistory(history, donationValue, noaTitle);
+    fenDonationValue.value = '';
+
+    // show modal
     modal.showModal();
 });

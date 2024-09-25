@@ -1,10 +1,13 @@
 function getInputValue(id) {
-    let inputValue = document.getElementById(id).value;
+    const inputValue = document.getElementById(id).value;
+    if(inputValue <= 0 || isNaN(inputValue) || inputValue === ''){
+        return -1;
+    }
     return inputValue;
 }
 
 function getInnerText(id) {
-    let money_cnt = document.getElementById(id).innerText;
+    const money_cnt = document.getElementById(id).innerText;
     return money_cnt;
 }
 
@@ -18,29 +21,9 @@ function showHistory(history, amount, title_text){
 }
 
 function validateDonation(amount, currentBalance) {
-    amount = amount.trim();
-
-    if (amount === '') {
-        alert("Please enter a donation amount.");
+    const val = parseFloat(currentBalance) - parseFloat(amount);
+    if(val < 0){
         return false;
     }
-
-    if (!/^\d+$/.test(amount)) {
-        alert("Please enter a valid positive integer.");
-        return false;
-    }
-
-    let numericValue = parseInt(amount);
-
-    if (numericValue <= 0) {
-        alert("Please enter a positive amount.");
-        return false;
-    }
-
-    if (numericValue > currentBalance) {
-        alert("Insufficient balance. Please enter a smaller amount.");
-        return false;
-    }
-
     return true;
 }
